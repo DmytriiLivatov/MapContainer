@@ -41,4 +41,4 @@ The iterator logic handles the complex task of finding the "successor" node in a
 3. Compile and run using the **Local Windows Debugger** (F5).
 
 ## Author
-**Dmitrii Livatov** *Laboratory Work #2 - Advanced Data Structures & Git*
+**Dmitrii Livatov** 
