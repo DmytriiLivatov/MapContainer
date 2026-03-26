@@ -1,31 +1,44 @@
-# Custom C++ STL-like Container Implementation
+# Custom C++ STL-like Map Implementation (Binary Search Tree)
 
-This repository contains a custom implementation of a template-based container in C++, designed to mimic the behavior of standard STL containers (like `std::vector` or `std::list`). This project was developed as part of a university laboratory assignment on version control systems and advanced C++ programming.
+A template-based associative container implemented as a **Binary Search Tree (BST)**. This project demonstrates advanced C++ concepts, including manual memory management, pointer manipulation, and custom bidirectional iterators.
 
-## Features
+## Technical Overview
 
-1) The container provides the following functionality:
-- **Dynamic Memory Management**: Implements the "Rule of Three" (Destructor, Copy Constructor, and Copy Assignment Operator) to ensure deep copying and prevent memory leaks.
-- **Template-based**: Supports any data type via C++ templates.
-- **Size Management**: Methods to check the current size and clear the container.
-- **Element Access**: Overloaded `operator[]` for intuitive element access.
-- **Modifiers**: Methods to add (`push_back`) and remove (`pop_back` / `erase`) elements.
-- **Stream Output**: Overloaded `operator<<` for easy printing using `std::cout`.
+The `CustomMap` stores key-value pairs in a tree structure where each node consists of a key, a value, and pointers to its left child, right child, and parent. This allows for efficient searching, insertion, and ordered iteration.
 
-## Advanced Feature: Iterators
-2) Following the "Task for the Curious," this container includes a custom **Iterator** implementation. 
-- Inherits from `std::iterator` (or follows the iterator traits pattern).
-- Supports standard navigation (`operator++`, `operator*`, `operator!=`).
-- Compatible with range-based `for` loops.
+### Key Features
 
-## Project Structure
+- **Binary Search Tree Logic**: Implements core BST algorithms including `transplant` and `eraseNode` for robust element removal.
+- **Associative Access**: Supports `operator[]` for both accessing and inserting elements, similar to `std::map`.
+- **Memory Management**: 
+    - **Rule of Three**: Fully implemented Copy Constructor, Assignment Operator, and Destructor to handle deep copies of the tree structure.
+    - **Clean-up**: Recursive tree destruction to prevent memory leaks.
+- **Bidirectional Iterator**: 
+    - Custom `Iterator` class that performs an **In-order traversal**.
+    - Uses a `ValueProxy` to provide `it->first` (Key) and `it->second` (Value) access.
+    - Fully compatible with range-based `for` loops and standard algorithms.
+- **Utility Methods**: `size()`, `empty()`, `clear()`, and `insert()`.
+- **Formatted Output**: Overloaded `operator<<` for elegant printing of the entire map content.
 
-- `main.cpp`: Demonstration of the container's capabilities.
-- `MyContainer.h`: Core logic and template implementation.
-- `.gitignore`: Configured to exclude build artifacts and IDE-specific files (Visual Studio).
+## Code Structure
 
-## How to Run
+- `CustomMap.h`: Template class definition and internal `Node` structure.
+- `CustomMap.hpp`: Implementation of template methods (Logic separation).
+- `main.cpp`: Test suite demonstrating insertion, removal, and iteration.
 
-1. Clone the repository:
-   ```bash
-   git clone [https://github.com/DmitriiLivatov/ConsoleApplication3.git](https://github.com/DmitriiLivatov/ConsoleApplication3.git)
+## Implementation Details
+
+The iterator logic handles the complex task of finding the "successor" node in a tree:
+1. If a right child exists, go to the leftmost node of the right subtree.
+2. Otherwise, move up to the parent until you come from a left child.
+
+
+
+## How to Build
+
+1. Open the project in **Visual Studio**.
+2. Ensure `CustomMap.h`, `CustomMap.hpp`, and `main.cpp` are in the same directory.
+3. Compile and run using the **Local Windows Debugger** (F5).
+
+## Author
+**Dmitrii Livatov** *Laboratory Work #2 - Advanced Data Structures & Git*
