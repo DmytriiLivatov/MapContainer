@@ -4,7 +4,7 @@ This repository contains a custom implementation of a template-based container i
 
 ## Features
 
-The container provides the following functionality:
+1) The container provides the following functionality:
 - **Dynamic Memory Management**: Implements the "Rule of Three" (Destructor, Copy Constructor, and Copy Assignment Operator) to ensure deep copying and prevent memory leaks.
 - **Template-based**: Supports any data type via C++ templates.
 - **Size Management**: Methods to check the current size and clear the container.
@@ -13,7 +13,7 @@ The container provides the following functionality:
 - **Stream Output**: Overloaded `operator<<` for easy printing using `std::cout`.
 
 ## Advanced Feature: Iterators
-Following the "Task for the Curious," this container includes a custom **Iterator** implementation. 
+2) Following the "Task for the Curious," this container includes a custom **Iterator** implementation. 
 - Inherits from `std::iterator` (or follows the iterator traits pattern).
 - Supports standard navigation (`operator++`, `operator*`, `operator!=`).
 - Compatible with range-based `for` loops.
